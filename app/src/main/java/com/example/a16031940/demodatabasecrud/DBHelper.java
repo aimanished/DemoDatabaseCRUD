@@ -38,7 +38,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTE);
+        db.execSQL("ALTER TABLE " + TABLE_NOTE + " ADD COLUMN module_name TEXT");
         onCreate(db);
     }
     public long insertNote(String noteContent) {
